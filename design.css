@@ -1,0 +1,121 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: 11px;
+}
+body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            background-image: url(images/chess2.jpg);
+            background-size: contain;
+        }
+
+        #game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #chess-board {
+            display: grid;
+            grid-template-columns: repeat(8, 60px);
+            grid-template-rows: repeat(8, 60px);
+            border: 2px solid #333;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .captured-pieces {
+            display: flex;
+            flex-wrap: wrap;
+            width: 480px;
+            min-height: 60px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            padding: 5px;
+            gap: 5px;
+        }
+
+        .captured-piece {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #game-info {
+            display: flex;
+            justify-content: space-between;
+            width: 480px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #turn-indicator {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        #reset-button {
+            padding: 5px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #reset-button:hover {
+            background-color: #45a049;
+        }
+
+        .tile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 40px;
+            user-select: none;
+        }
+
+        .tile img {
+            width: 50px;
+            height: 50px;
+            pointer-events: none;
+        }
+
+        .tile.highlight {
+            background-color: #8f8 !important;
+        }
+
+        .tile.selected {
+            background-color: #88f !important;
+        }
+
+        .tile.possible-move {
+            background-color: #ff8 !important;
+        }
+
+        .tile.debug {
+            position: relative;
+        }
+        
+        .tile.debug::after {
+            content: attr(data-type);
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            font-size: 8px;
+            background: white;
+            padding: 2px;
+        }
